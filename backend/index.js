@@ -16,9 +16,9 @@ app.use((req, res, next) => {
   next();
 });
 
-app.get("/meals", async (req, res) => {
-  const meals = "[]" // data should be read from file
-  res.json(JSON.parse(meals));
+app.get("/meals", async (req, res) => { 
+  const meals = require("./data/meals.json");
+  res.json(meals);
 });
 
 app.use((req, res) => {
