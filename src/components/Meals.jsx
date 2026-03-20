@@ -1,7 +1,9 @@
 import { useEffect, useState} from "react";
+import MealItem from "./MealItem.jsx";
+import "../index.css";
 
 const Meals = () => {
-    const [meals, setMeals] = useState([]);
+    const [meals, setMeals] = useState([])
     
     useEffect(() => {
     fetch('http://localhost:3001/meals')
@@ -11,17 +13,17 @@ const Meals = () => {
     .then((Responsedata) => {
         setMeals(Responsedata.mealskey)
     })
-    }, [])
+    }, []);
 
-    console.log(meals)
-    
-    return (
-        <ul id="meals">
-            { 
-                <p>list of mealss</p>
-            }
-        </ul>
-    );
+    console.log('meals', meals);
+
+return (
+  <ul id="meals">
+    {meals.map((meal) => (
+      <MealItem key={meal.id} meal={meal} />
+    ))}
+  </ul>
+);
 }
 
 
