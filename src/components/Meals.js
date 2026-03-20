@@ -2,7 +2,7 @@ const Meals = () => {
     return (
         <ul id="meals">
             { 
-                <p>list of meals</p>
+                <p>list of mealss</p>
             }
         </ul>
     )
