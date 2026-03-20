@@ -16,9 +16,10 @@ app.use((req, res, next) => {
   next();
 });
 
-app.get("/meals", async (req, res) => { 
-  const meals = require("./data/meals.json");
-  res.json(meals);
+app.get("/meals", async (req, res) => {
+  const meals = await fs.readFile('./data/meals.json');
+  const mealsJson = JSON.parse(meals);
+  res.status(200).json({ mealskey: mealsJson });
 });
 
 app.use((req, res) => {
